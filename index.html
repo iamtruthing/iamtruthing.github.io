@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iat</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .page {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            transition: transform 0.5s ease;
+        }
+        #title-page {
+            background-color: white;
+        }
+        #button-page {
+            background-color: white;
+            transform: translateY(100%);
+        }
+        .center-title {
+            font-size: clamp(73px, 12vw, 373px);
+            text-align: center;
+            cursor: pointer;
+        }
+        .center-title:hover .original {
+            display: none;
+        }
+        .center-title:hover .hover {
+            display: inline;
+        }
+        .hover {
+            display: none;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .button {
+            text-decoration: none;
+            font-size: 16px;
+            font-size: clamp(73px, 7vw, 173px);
+	          color: black;
+            transition: background-color 0.3s;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .button:hover {
+            color: gray;
+        }
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            color: #333;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .top-button:hover {
+            background-color: #e8e8e8;
+        }
+        .arrow-up {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 15px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="title-page" class="page">
+        <div class="center-title" onclick="showButtons()">
+            <span class="original">ἀληθεύω</span>
+            <span class="hover">i am truthing</span>
+        </div>
+    </div>
+    <div id="button-page" class="page">
+        <div class="button-container">
+          <p><a href="about.html" class="button">About</a></p>
+          <p><a href="http://blog.iamtruthing.com" class="button" target="_blank" rel="noopener noreferrer">Blog</a></p>
+          <p><a class="button" onclick="showTitlePage()">Cool</a></p>
+        </div>
+    </div>
+    <script>
+        function showButtons() {
+            document.getElementById('title-page').style.transform = 'translateY(-100%)';
+            document.getElementById('button-page').style.transform = 'translateY(0)';
+        }
+        
+        function showTitlePage() {
+            document.getElementById('title-page').style.transform = 'translateY(0)';
+            document.getElementById('button-page').style.transform = 'translateY(100%)';
+        }
+    </script>
+</body>
+</html>
